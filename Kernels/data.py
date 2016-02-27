@@ -13,4 +13,4 @@ def load_test_data():
 
 #TODO: Possibly use different data for training and validation
 def load_train_data():
-    return load_csv("train.csv")
+    return load_csv("validation.csv")
