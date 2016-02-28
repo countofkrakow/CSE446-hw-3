@@ -19,7 +19,7 @@ class perceptron:
                     self.a[imod] -= 1
 
             if lossInterval is not None and i % lossInterval == 0:
-                print 'average loss at %d steps: %f' % (i, float(wrong)/(i+1))
+                print('average loss at %d steps: %f' % (i, float(wrong)/(i+1)))
 
     def predict(self, point):
         pred = 0
