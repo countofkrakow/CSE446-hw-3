@@ -30,13 +30,13 @@ class kernelTest(unittest.TestCase):
         for point in train_data:
             if p.predict(point):
                 correct += 1
-        print('Training data loss: %f' % (1. - float(correct) / len(train_data)))
+        print('Training data loss: %f' % (1 - float(correct) / len(train_data)))
 
         correct = 0
         for point in test_data:
             if p.predict(point):
                 correct += 1
-        print('Test data loss: %f' % (1. - float(correct) / len(test_data)))
+        print('Test data loss: %f' % (1 - float(correct) / len(test_data)))
         print('\n')
 
     # Q3.1
@@ -95,7 +95,7 @@ class kernelTest(unittest.TestCase):
         p = perceptron(self.train_data, lambda x, y: self.dot_prod_poly(x, y,)**3)
         self.run_test(p, self.train_data, self.test_data, lossInterval=100)
 
-        print('Test n = 10 degree exponential kernel after 1000 iterations:')
+        print('Test sigma = 10 exponential kernel after 1000 iterations:')
         p = perceptron(self.train_data, lambda x, y: self.exp_kern(x, y, 10))
         self.run_test(p, self.train_data, self.test_data, lossInterval=100)
 
