@@ -55,31 +55,31 @@ class kernelTest(unittest.TestCase):
     def test_polyKernels(self):
         print('Testing polynomial kernels of varying degrees:')
         print('-'*75)
-        print('Test n = 1 degree polynomial kernel after 1000 iterations:')
+        print('Test n = 1 degree polynomial kernel after 1000 steps:')
         p = perceptron(self.train_data, lambda x, y: self.dot_prod_poly(x, y))
         self.run_test(p, self.train_data, self.test_data)
 
-        print('Test n = 3 degree polynomial kernel after 1000 iterations:')
+        print('Test n = 3 degree polynomial kernel after 1000 steps:')
         p = perceptron(self.train_data, lambda x, y: self.dot_prod_poly(x, y)**3)
         self.run_test(p, self.train_data, self.test_data)
 
-        print('Test n = 5 degree polynomial kernel after 1000 iterations:')
+        print('Test n = 5 degree polynomial kernel after 1000 steps:')
         p = perceptron(self.train_data, lambda x, y: self.dot_prod_poly(x, y)**5)
         self.run_test(p, self.train_data, self.test_data)
 
-        print('Test n = 7 degree polynomial kernel after 1000 iterations:')
+        print('Test n = 7 degree polynomial kernel after 1000 steps:')
         p = perceptron(self.train_data, lambda x, y: self.dot_prod_poly(x, y)**7)
         self.run_test(p, self.train_data, self.test_data)
 
-        print('Test n = 10 degree polynomial kernel after 1000 iterations:')
+        print('Test n = 10 degree polynomial kernel after 1000 steps:')
         p = perceptron(self.train_data, lambda x, y: self.dot_prod_poly(x, y)**10)
         self.run_test(p, self.train_data, self.test_data)
 
-        print('Test n = 15 degree polynomial kernel after 1000 iterations:')
+        print('Test n = 15 degree polynomial kernel after 1000 steps:')
         p = perceptron(self.train_data, lambda x, y: self.dot_prod_poly(x, y)**15)
         self.run_test(p, self.train_data, self.test_data)
 
-        print('Test n = 20 degree polynomial kernel after 1000 iterations:')
+        print('Test n = 20 degree polynomial kernel after 1000 steps:')
         p = perceptron(self.train_data, lambda x, y: self.dot_prod_poly(x, y)**20)
         self.run_test(p, self.train_data, self.test_data)
 
@@ -91,11 +91,11 @@ class kernelTest(unittest.TestCase):
     def test_exponentialKernel(self):
         print('Testing exponential kernel against polynomial kernel:')
         print('-'*75)
-        print('Test n = 3 degree polynomial kernel after 1000 iterations:')
+        print('Test n = 3 degree polynomial kernel after 1000 steps:')
         p = perceptron(self.train_data, lambda x, y: self.dot_prod_poly(x, y,)**3)
         self.run_test(p, self.train_data, self.test_data, lossInterval=100)
 
-        print('Test sigma = 10 exponential kernel after 1000 iterations:')
+        print('Test sigma = 10 exponential kernel after 1000 steps:')
         p = perceptron(self.train_data, lambda x, y: self.exp_kern(x, y, 10))
         self.run_test(p, self.train_data, self.test_data, lossInterval=100)
 
