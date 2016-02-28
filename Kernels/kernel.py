@@ -6,27 +6,23 @@ class perceptron:
 
     def train(self, iterations=1000, lossInterval=None):
         wrong = 0
-        self.a = [0]*len(self.data)
+        self.mistakes = []
         for i in range(iterations): # num iterations
 
             imod = i % len(self.data)
             y_i = self.data[imod]['label']
             if not self.predict(self.data[imod]):
                 wrong += 1
-                if sign(y_i):
-                    self.a[imod] += 1
-                else:
-                    self.a[imod] -= 1
+                self.mistakes.append((self.data[imod]['features'], y_i))
 
             if lossInterval is not None and i % lossInterval == 0:
                 print('average loss at %d steps: %f' % (i, float(wrong)/(i+1)))
 
     def predict(self, point):
         pred = 0
-        for j in range(len(self.data)):
-            pred += self.a[j] * self.kern(point['features'], self.data[j]['features'])
-        ret = sign(pred) == sign(point['label'])
-        return ret
+        for x, y in self.mistakes:
+            pred += y * self.kern(point['features'], x)
+        return sign(pred) == sign(point['label'])
 
 # True for x > 0
 # False for x <= 0

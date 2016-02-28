@@ -1,5 +1,4 @@
 Christopher Nakovski
-Note: the full test suite runs for close to 15 minutes on my intel i7 laptop
 
 Q3.1:
     These are the computed results.
